@@ -1,0 +1,121 @@
+type IconProps = React.SVGProps<SVGSVGElement>;
+
+const base = (props: IconProps) => ({
+  width: 20,
+  height: 20,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true,
+  ...props,
+});
+
+export function InstagramIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function TelegramIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M21.5 4L2.8 10.6c-.8.3-.8 1.5 0 1.8l4.6 1.5 1.6 5.2c.2.8 1.2 1 1.8.3l2.3-2.4 4.7 3.5c.6.5 1.5.1 1.7-.6L22.4 5c.2-.7-.4-1.3-1-1z" />
+      <path d="M7.4 13.8l9.8-6.4c.4-.3.9.2.5.6l-7.5 6.9" />
+    </svg>
+  );
+}
+
+export function MapPinIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" />
+      <circle cx="12" cy="10" r="2.7" />
+    </svg>
+  );
+}
+
+export function PhoneIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M5 4h4l1.5 4.5-2.2 1.6a12 12 0 0 0 5.6 5.6l1.6-2.2L20 15v4a1.5 1.5 0 0 1-1.7 1.5C10.4 19.6 4.4 13.6 3.5 5.7A1.5 1.5 0 0 1 5 4z" />
+    </svg>
+  );
+}
+
+export function ShareIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="6" cy="12" r="2.4" />
+      <circle cx="18" cy="6" r="2.4" />
+      <circle cx="18" cy="18" r="2.4" />
+      <path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8" />
+    </svg>
+  );
+}
+
+export function CalendarIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3.5" y="5" width="17" height="16" rx="2.5" />
+      <path d="M3.5 10h17M8 3v4M16 3v4" />
+      <path d="M8 14l1.8 1.8L15.5 10.5" />
+    </svg>
+  );
+}
+
+export function BookIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 6.5C10.5 4.8 8.2 4 4.5 4v14c3.7 0 6 .8 7.5 2.5 1.5-1.7 3.8-2.5 7.5-2.5V4c-3.7 0-6 .8-7.5 2.5z" />
+      <path d="M12 6.5v14" />
+    </svg>
+  );
+}
+
+export function CheckIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4.5 12.5l5 5 10-11" />
+    </svg>
+  );
+}
+
+export function MenuIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+export function CloseIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  );
+}
+
+export function MoonIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+    </svg>
+  );
+}
+
+export function SunIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19" />
+    </svg>
+  );
+}

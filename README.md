@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# موقع الأستاذ مويات براء عبد الله
 
-## Getting Started
+موقع تعريفي كامل (Production-Ready) بالعربية وبتصميم RTL للأستاذ **مويات براء عبد الله** — أستاذ الرياضيات في التعليم الثانوي.
 
-First, run the development server:
+يتضمّن: تقديم الأستاذ، برنامج دروس الدعم (الأفواج الرسمية)، بحث ذكي عن الفوج، المكتبة التعليمية، قنوات التلغرام، حساب الإنستغرام، ومكان الدراسة (مدرسة حارة حفرة).
+
+## التقنيات
+
+- [Next.js 16](https://nextjs.org) (App Router / Turbopack)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- خطوط `Cairo` و`Playfair Display` عبر `next/font`
+
+## التشغيل محليًا
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ثم افتح [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## الأوامر
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev     # خادم التطوير
+npm run build   # بناء الإنتاج
+npm run start   # تشغيل نسخة الإنتاج
+npm run lint    # فحص ESLint
+```
 
-## Learn More
+## متغيّر البيئة
 
-To learn more about Next.js, take a look at the following resources:
+| المتغيّر | الوصف | القيمة الافتراضية |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | الرابط النهائي للموقع، يُستخدم في `metadata` و`sitemap` و`robots` وروابط المشاركة | `http://localhost:3000` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+قبل النشر، أنشئ ملف `.env.local` (أو أضف المتغيّر في منصة الاستضافة):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+NEXT_PUBLIC_SITE_URL=https://example.com
+```
 
-## Deploy on Vercel
+## بنية المشروع
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/                 # التوجيه والـmetadata (layout, page, manifest, sitemap, robots, not-found)
+  components/
+    layout/            # navbar, footer, floating-actions, theme
+    sections/          # hero, about, levels, schedule, schedule-finder, instagram, telegram, library, location, contact
+    shared/            # icons, container, section, button, reveal
+    widgets/           # qr-code, share-button
+  data/                # site, teacher, schedule (مصدر الحقيقة الوحيد للبيانات)
+  lib/                 # utils
+scripts/
+  generate-icons.mjs   # توليد أيقونات PNG في public/ و src/app/
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> كل معلومات الموقع (الروابط، الجدول، أرقام التواصل) معرّفة مركزيًا في `src/data/`. لتحديث أي محتوى، عدّل هذه الملفات فقط.
+
+## توليد الأيقونات
+
+```bash
+node scripts/generate-icons.mjs
+```
+
+يُنشئ `src/app/icon.png`، `src/app/apple-icon.png`، `public/icon-192.png`، `public/icon-512.png`، وصورة المشاركة `public/og.png` (1200×630).
+
+## النشر
+
+الموقع ثابت بالكامل (Static) ويمكن نشره على منصات مثل [Vercel](https://vercel.com/new) مباشرة — فقط تأكّد من ضبط `NEXT_PUBLIC_SITE_URL`.
