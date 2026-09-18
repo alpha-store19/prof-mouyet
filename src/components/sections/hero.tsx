@@ -40,7 +40,7 @@ export function Hero() {
             style={{ animationDelay: "0.05s" }}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-            الموقع الرسمي — Official Website
+            الموقع الرسمي — تحديث 2026
           </span>
 
           <h1
