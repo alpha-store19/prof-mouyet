@@ -8,6 +8,9 @@ import {
   PhoneIcon,
   MapPinIcon,
   ChevronLeftIcon,
+  GraduationCapIcon,
+  BookOpenIcon,
+  CalculatorIcon,
 } from "@/components/shared/icons";
 import { ShareButton } from "@/components/widgets/share-button";
 import { QrCode } from "@/components/widgets/qr-code";
@@ -54,19 +57,19 @@ const channels = [
 
 const telegramChannels = [
   {
-    icon: "📘",
+    icon: <GraduationCapIcon width={20} height={20} />,
     title: "السنة الثالثة ثانوي",
     description: "محتوى وإعلانات وموارد خاصة بطلاب السنة الثالثة ثانوي.",
     href: teacher.links.telegram3AS,
   },
   {
-    icon: "📗",
+    icon: <BookOpenIcon width={20} height={20} />,
     title: "السنة الأولى والثانية ثانوي",
     description: "",
     href: teacher.links.telegram1And2AS,
   },
   {
-    icon: "📐",
+    icon: <CalculatorIcon width={20} height={20} />,
     title: "قناة السند في الرياضيات",
     description: "لشعبتي الرياضيات وتقني رياضي.",
     href: teacher.links.telegramMath,
@@ -151,7 +154,7 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="group flex h-full flex-col items-center rounded-2xl border border-line bg-surface p-6 text-center transition-all duration-200 hover:-translate-y-1 hover:border-gold/60 hover:bg-background hover:shadow-md"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft text-xl">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft text-gold-strong">
                     {channel.icon}
                   </span>
                   <h4 className="mt-3 text-[15px] font-extrabold text-ink">

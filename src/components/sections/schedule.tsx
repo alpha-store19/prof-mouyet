@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   FILTERS,
+  LEVELS,
   matchesFilter,
   schedule,
   LEVEL_LABEL,
@@ -16,12 +17,35 @@ import { cn, onScheduleFilter } from "@/lib/utils";
 import {
   CheckIcon,
   BookIcon,
+  BookOpenIcon,
   SchoolIcon,
   UsersIcon,
   CalendarIcon,
   ClockIcon,
+  FlaskIcon,
+  TriangleIcon,
+  CalculatorIcon,
+  ChartBarIcon,
 } from "@/components/shared/icons";
 import { ScheduleFinder } from "./schedule-finder";
+
+function levelChipIcon(filter: FilterId) {
+  const size = 18;
+  switch (filter) {
+    case "stream-science":
+      return <FlaskIcon width={size} height={size} />;
+    case "stream-engineering":
+      return <TriangleIcon width={size} height={size} />;
+    case "stream-math":
+      return <CalculatorIcon width={size} height={size} />;
+    case "stream-economy":
+      return <ChartBarIcon width={size} height={size} />;
+    case "1as":
+      return <BookOpenIcon width={size} height={size} />;
+    default:
+      return <BookIcon width={size} height={size} />;
+  }
+}
 
 function ScheduleCard({
   entry,
@@ -35,9 +59,9 @@ function ScheduleCard({
   return (
     <article
       className={cn(
-        "group relative flex flex-col rounded-2xl border bg-background p-5 shadow-sm transition-all duration-200",
+        "group relative flex flex-col rounded-2xl border bg-surface p-5 shadow-sm transition-all duration-200",
         highlighted
-          ? "border-2 border-gold bg-gold-soft/30 shadow-lg shadow-gold/10 ring-1 ring-gold"
+          ? "border-2 border-gold bg-gold-soft/40 shadow-lg shadow-gold/10 ring-1 ring-gold"
           : "border-line hover:-translate-y-1 hover:border-gold/50 hover:shadow-md",
       )}
     >
@@ -97,11 +121,18 @@ function ScheduleCard({
           "mt-auto inline-flex h-10 w-full items-center justify-center rounded-full border text-sm font-extrabold transition-all duration-200 active:scale-[0.98]",
           highlighted
             ? "border-gold bg-gold text-charcoal shadow-sm shadow-gold/30"
-            : "border-line bg-surface text-ink-soft hover:border-gold hover:text-gold-strong",
+            : "border-line bg-background text-ink-soft hover:border-gold hover:text-gold-strong",
         )}
         aria-pressed={highlighted}
       >
-        {highlighted ? "✓ هو برنامجي" : "هذا برنامجي"}
+        {highlighted ? (
+          <>
+            <CheckIcon width={15} height={15} />
+            هو برنامجي
+          </>
+        ) : (
+          "هذا برنامجي"
+        )}
       </button>
     </article>
   );
@@ -128,66 +159,126 @@ export function Schedule() {
     setHighlightedId(entryId);
   }, []);
 
+  const selectFilter = useCallback((f: FilterId) => {
+    setFilter(f);
+    setHighlightedId(null);
+  }, []);
+
   return (
-    <Section id="planning" className="bg-surface">
+    <Section id="planning" className="bg-background">
       <Container>
         <Reveal>
           <SectionHeading
-            overline="📅 برنامج دروس الدعم"
-            english="Planning"
+            overline="البرنامج"
+            english="Program"
             title="برنامج دروس الدعم"
-            description="اختر مستواك أو شعبتك لمعرفة الفوج، الأيام والتوقيت."
+            description="اختر مستواك أو شعبتك لمعرفة الفوج، الأيام والتوقيت — أو ابحث عن برنامجك في الخطوات الثلاثة."
           />
-          <p className="mt-4 text-center text-sm font-bold text-muted">
-            اختر مستواك لمعرفة موعد حصتك.
-          </p>
         </Reveal>
 
-        <Reveal className="mt-10">
-          <ScheduleFinder onMatch={handleMatch} />
-        </Reveal>
+        <div className="mt-12 grid grid-cols-1 items-start gap-6 lg:grid-cols-3 lg:gap-8">
+          <Reveal className="lg:col-span-1 lg:sticky lg:top-28">
+            <ScheduleFinder onMatch={handleMatch} />
+          </Reveal>
 
-        <Reveal className="mt-12" delay={60}>
-          <div
-            role="tablist"
-            aria-label="تصفية البرنامج حسب المستوى أو الشعبة"
-            className="no-scrollbar flex gap-2 overflow-x-auto pb-1"
-          >
-            {FILTERS.map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                role="tab"
-                aria-selected={filter === f.id}
-                onClick={() => setFilter(f.id)}
-                className={cn(
-                  "shrink-0 rounded-full border px-4 py-2 text-sm font-bold transition-all duration-200",
-                  filter === f.id
-                    ? "border-gold bg-gold text-charcoal shadow-sm shadow-gold/30"
-                    : "border-line bg-background text-ink-soft hover:border-gold/50 hover:text-gold-strong",
-                )}
+          <div className="flex min-w-0 flex-col gap-7 lg:col-span-2">
+            <Reveal>
+              <div>
+                <p className="text-sm font-extrabold text-ink-soft">
+                  المستويات والشعب
+                </p>
+                <p className="mt-1 text-xs font-semibold text-muted">
+                  اختر مستواك لعرض برنامجه مباشرة.
+                </p>
+              </div>
+              <div className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1">
+                {LEVELS.map((level) => (
+                  <button
+                    key={level.id}
+                    type="button"
+                    aria-pressed={filter === level.filter}
+                    onClick={() => selectFilter(level.filter)}
+                    className={cn(
+                      "group inline-flex shrink-0 items-center gap-2.5 rounded-2xl border px-3.5 py-2.5 transition-all duration-200",
+                      filter === level.filter
+                        ? "border-gold bg-gold text-charcoal shadow-sm shadow-gold/30"
+                        : "border-line bg-surface text-ink hover:border-gold/60 hover:text-gold-strong",
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors",
+                        filter === level.filter
+                          ? "bg-charcoal/15 text-charcoal"
+                          : "bg-gold-soft text-gold-strong",
+                      )}
+                    >
+                      {levelChipIcon(level.filter)}
+                    </span>
+                    <span className="flex flex-col text-start">
+                      <span className="text-[13px] font-extrabold leading-tight">
+                        {level.title}
+                      </span>
+                      <span
+                        className={cn(
+                          "text-[11px] font-semibold leading-tight",
+                          filter === level.filter
+                            ? "text-charcoal/70"
+                            : "text-muted",
+                        )}
+                      >
+                        {level.subtitle}
+                      </span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={50}>
+              <p className="text-sm font-extrabold text-ink-soft">تصفية حسب:</p>
+              <div
+                role="tablist"
+                aria-label="تصفية البرنامج حسب المستوى أو الشعبة"
+                className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1"
               >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </Reveal>
+                {FILTERS.map((f) => (
+                  <button
+                    key={f.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={filter === f.id}
+                    onClick={() => selectFilter(f.id)}
+                    className={cn(
+                      "shrink-0 rounded-full border px-4 py-2 text-sm font-bold transition-all duration-200",
+                      filter === f.id
+                        ? "border-gold bg-gold text-charcoal shadow-sm shadow-gold/30"
+                        : "border-line bg-surface text-ink-soft hover:border-gold/60 hover:text-gold-strong",
+                    )}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+            </Reveal>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.length > 0 ? (
-            filtered.map((entry) => (
-              <ScheduleCard
-                key={entry.id}
-                entry={entry}
-                highlighted={highlightedId === entry.id}
-                onToggle={handleToggle}
-              />
-            ))
-          ) : (
-            <p className="col-span-full rounded-2xl border border-dashed border-line bg-background p-8 text-center text-sm font-bold text-muted">
-              لا توجد بيانات برنامج مطابقة لهذا الفلتر حالياً.
-            </p>
-          )}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {filtered.length > 0 ? (
+                filtered.map((entry) => (
+                  <ScheduleCard
+                    key={entry.id}
+                    entry={entry}
+                    highlighted={highlightedId === entry.id}
+                    onToggle={handleToggle}
+                  />
+                ))
+              ) : (
+                <p className="col-span-full rounded-2xl border border-dashed border-line bg-surface p-8 text-center text-sm font-bold text-muted">
+                  لا توجد بيانات برنامج مطابقة لهذا الفلتر حالياً.
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       </Container>
     </Section>

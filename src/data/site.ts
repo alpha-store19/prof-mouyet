@@ -24,7 +24,7 @@ export const site = {
 
 export const navLinks = [
   { id: "about", label: "عن الأستاذ", english: "About", href: "#about" },
-  { id: "levels", label: "المستويات", english: "Levels", href: "#levels" },
+  { id: "planning", label: "البرنامج", english: "Program", href: "#planning" },
   { id: "library", label: "المكتبة", english: "Library", href: "#library" },
   { id: "location", label: "المكان", english: "Location", href: "#location" },
   { id: "contact", label: "تواصل معنا", english: "Contact", href: "#contact" },

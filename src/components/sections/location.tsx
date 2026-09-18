@@ -7,7 +7,7 @@ import { MapPinIcon, PhoneIcon } from "@/components/shared/icons";
 
 export function Location() {
   return (
-    <Section id="location" className="bg-surface">
+    <Section id="location" className="bg-background">
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal>
@@ -57,16 +57,10 @@ export function Location() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="relative overflow-hidden rounded-3xl border border-line bg-background p-8 shadow-md sm:p-10">
+            <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-8 shadow-md sm:p-10">
               <div aria-hidden className="pointer-events-none absolute inset-0">
                 <div className="absolute inset-0 opacity-60 [background:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:32px_32px]" />
                 <div className="absolute -start-16 -top-16 h-48 w-48 rounded-full bg-gold/10 blur-2xl" />
-                <span className="math-symbol right-[10%] top-[14%] text-5xl opacity-15">
-                  ∑
-                </span>
-                <span className="math-symbol left-[8%] bottom-[12%] text-5xl opacity-15">
-                  √
-                </span>
               </div>
 
               <div className="relative flex flex-col items-center text-center">

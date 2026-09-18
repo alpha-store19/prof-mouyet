@@ -60,7 +60,7 @@ function ResultPanel({
   if (!selectionComplete) {
     return (
       <div className="flex items-center gap-3 rounded-2xl border border-dashed border-line bg-background p-5 text-sm font-bold text-muted">
-        أكمل الاختيارات لمعرفة برنامجك 😊
+        أكمل الاختيارات لمعرفة برنامجك.
       </div>
     );
   }

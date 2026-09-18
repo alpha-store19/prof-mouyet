@@ -172,3 +172,117 @@ export function ChevronLeftIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function LightbulbIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M9 18h6M10 21h4" />
+      <path d="M12 3a6 6 0 0 0-3.4 10.9c.7.5 1.1 1.2 1.3 2.1h4.2c.2-.9.6-1.6 1.3-2.1A6 6 0 0 0 12 3z" />
+    </svg>
+  );
+}
+
+export function PencilIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 20l1.2-4.2L16.3 4.7a2 2 0 0 1 2.8 2.8L8 18.7 4 20z" />
+      <path d="M14.3 6.7l3 3" />
+    </svg>
+  );
+}
+
+export function ClipboardIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M9 3.5h6a1.5 1.5 0 0 1 1.5 1.5v1H7.5V5A1.5 1.5 0 0 1 9 3.5z" />
+      <rect x="5.5" y="6" width="13" height="14.5" rx="2" />
+      <path d="M9 11h6M9 14.5h6M9 18h3.5" />
+    </svg>
+  );
+}
+
+export function ChartUpIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 20h16" />
+      <path d="M6 16.5l4-5 3 3 5-7" />
+      <path d="M14 7.5h4v4" />
+    </svg>
+  );
+}
+
+export function ChartBarIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 20h16" />
+      <path d="M8 16v-6M12 16V8M16 16v-9" />
+    </svg>
+  );
+}
+
+export function FlaskIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M9 3h6M10 3v5l-4.2 8.6A1.8 1.8 0 0 0 7.4 19h9.2a1.8 1.8 0 0 0 1.6-2.4L14 8V3" />
+      <path d="M7.6 13.5h8.8" />
+    </svg>
+  );
+}
+
+export function TriangleIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 3.5L21 18.5H3z" />
+      <path d="M12 7.5v4.5M12 14v2" />
+    </svg>
+  );
+}
+
+export function CalculatorIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="6" y="3" width="12" height="18" rx="2" />
+      <path d="M9 7h6" />
+      <path d="M9 12.3h.01M12 12.3h.01M15 12.3h.01M9 15.7h.01M12 15.7h.01M15 15.7h.01" />
+    </svg>
+  );
+}
+
+export function BookOpenIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M2.5 5.5c3.3-.9 5.8.4 9.5 2.4 3.7-2 6.2-3.3 9.5-2.4v13c-3.3-.9-5.8.4-9.5 2.4-3.7-2-6.2-3.3-9.5-2.4z" />
+      <path d="M12 7.9v13" />
+    </svg>
+  );
+}
+
+export function FileIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5L14 3z" />
+      <path d="M14 3v4.5h4.5" />
+      <path d="M9 12h6M9 15.5h6" />
+    </svg>
+  );
+}
+
+export function FileCheckIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5z" />
+      <path d="M14 3v4.5h4.5" />
+      <path d="M9.5 14l2 2 3-3.5" />
+    </svg>
+  );
+}
+
+export function GraduationCapIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M2.5 10L12 5.5 21.5 10 12 14.5z" />
+      <path d="M6.5 12.5V17c0 1 2.5 3 5.5 3s5.5-2 5.5-3v-4.5" />
+      <path d="M21.5 10v5" />
+    </svg>
+  );
+}

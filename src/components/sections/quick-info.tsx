@@ -1,5 +1,6 @@
 import { Container } from "@/components/shared/container";
 import { Reveal } from "@/components/shared/reveal";
+import { cn } from "@/lib/utils";
 import {
   BookIcon,
   CalendarIcon,
@@ -32,33 +33,35 @@ const items = [
 
 export function QuickInfo() {
   return (
-    <div className="relative z-10 -mt-12 pb-4 sm:-mt-16">
+    <div className="relative z-10 -mt-10 pb-4 sm:-mt-12">
       <Container>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 sm:gap-4">
-          {items.map((item, i) => (
-            <Reveal
-              key={item.title}
-              delay={i * 70}
-              className="group relative overflow-hidden rounded-2xl border border-line bg-surface p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/10"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-0.5 origin-right scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100"
-              />
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold-soft text-gold-strong transition-colors group-hover:bg-gold group-hover:text-charcoal">
-                {item.icon}
-              </span>
-              <span className="mt-4 flex flex-col">
-                <span className="text-[15px] font-extrabold text-ink">
-                  {item.title}
+        <Reveal className="overflow-hidden rounded-2xl border border-line bg-background shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {items.map((item, i) => (
+              <div
+                key={item.title}
+                className={cn(
+                  "group flex items-center gap-3.5 border-line p-5",
+                  i > 0 && "border-t sm:border-t-0",
+                  i > 1 && "sm:border-t lg:border-t-0",
+                  i > 0 && "sm:border-s",
+                )}
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold-soft text-gold-strong transition-colors duration-200 group-hover:bg-gold group-hover:text-charcoal">
+                  {item.icon}
                 </span>
-                <span className="mt-0.5 text-xs font-semibold text-muted">
-                  {item.sub}
+                <span className="flex flex-col">
+                  <span className="text-[15px] font-extrabold text-ink">
+                    {item.title}
+                  </span>
+                  <span className="mt-0.5 text-xs font-semibold text-muted">
+                    {item.sub}
+                  </span>
                 </span>
-              </span>
-            </Reveal>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </Container>
     </div>
   );

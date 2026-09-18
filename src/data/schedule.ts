@@ -183,7 +183,6 @@ export const LEVELS = [
     title: "الثالثة ثانوي",
     subtitle: "علوم تجريبية",
     filter: "stream-science" as FilterId,
-    icon: "🔬",
   },
   {
     id: "level-3as-engineering",
@@ -191,7 +190,6 @@ export const LEVELS = [
     title: "الثالثة ثانوي",
     subtitle: "شعبة الهندسة",
     filter: "stream-engineering" as FilterId,
-    icon: "📐",
   },
   {
     id: "level-3as-math",
@@ -199,7 +197,6 @@ export const LEVELS = [
     title: "الثالثة ثانوي",
     subtitle: "شعبة الرياضيات",
     filter: "stream-math" as FilterId,
-    icon: "🧮",
   },
   {
     id: "level-3as-economy",
@@ -207,7 +204,6 @@ export const LEVELS = [
     title: "الثالثة ثانوي",
     subtitle: "تسيير واقتصاد",
     filter: "stream-economy" as FilterId,
-    icon: "📊",
   },
   {
     id: "level-2as",
@@ -215,7 +211,6 @@ export const LEVELS = [
     title: "الثانية ثانوي",
     subtitle: "فوج 1 • فوج 2",
     filter: "2as" as FilterId,
-    icon: "📗",
   },
   {
     id: "level-1as",
@@ -223,7 +218,6 @@ export const LEVELS = [
     title: "الأولى ثانوي",
     subtitle: "فوج 1 • فوج 2",
     filter: "1as" as FilterId,
-    icon: "📘",
   },
 ] as const;
 
