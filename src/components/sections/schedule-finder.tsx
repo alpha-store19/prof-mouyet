@@ -10,7 +10,12 @@ import {
   type ScheduleEntry,
 } from "@/data/schedule";
 import { teacher } from "@/data/teacher";
-import { CheckIcon, MapPinIcon } from "@/components/shared/icons";
+import {
+  CheckIcon,
+  MapPinIcon,
+  CalendarIcon,
+  ClockIcon,
+} from "@/components/shared/icons";
 
 type LevelOption = { value: LevelKey; label: string };
 
@@ -78,11 +83,11 @@ function ResultPanel({
       </p>
       <div className="mt-3 space-y-2.5">
         <p className="flex flex-wrap items-center gap-2 text-base font-black text-ink">
-          <span className="text-xl">📅</span>
+          <CalendarIcon width={19} height={19} className="text-gold-strong" />
           {entry.days.join(" + ")}
         </p>
         <p className="flex items-center gap-2 text-lg font-black text-gold-strong" dir="ltr">
-          <span className="text-xl">⏰</span>
+          <ClockIcon width={19} height={19} />
           {entry.start} — {entry.end}
         </p>
         <p className="flex items-center gap-2 text-sm font-bold text-ink-soft">
@@ -144,10 +149,13 @@ export function ScheduleFinder({
   return (
     <div className="space-y-4 rounded-3xl border border-line bg-surface p-5 shadow-sm sm:p-7">
       <div>
-        <h3 className="text-lg font-extrabold text-ink">
-          📌 ابحث عن برنامجك
+        <h3 className="flex items-center gap-2 text-lg font-extrabold text-ink">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold-soft text-gold-strong">
+            <MapPinIcon width={16} height={16} />
+          </span>
+          ابحث عن برنامجك
         </h3>
-        <p className="mt-1 text-sm text-muted">
+        <p className="mt-2 text-sm text-muted">
           حدد مستواك وشعبتك لتعرف أيام وتوقيت حصتك مباشرة.
         </p>
       </div>

@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { site, navLinks } from "@/data/site";
 import { teacher } from "@/data/teacher";
 import { cn } from "@/lib/utils";
-import { MenuIcon, CloseIcon, CalendarIcon } from "@/components/shared/icons";
+import {
+  MenuIcon,
+  CloseIcon,
+  CalendarIcon,
+  PhoneIcon,
+} from "@/components/shared/icons";
 import { ButtonLink } from "@/components/shared/button";
 import { ThemeToggle } from "./theme";
 
@@ -24,17 +29,21 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || open
-          ? "border-b border-line bg-background/90 backdrop-blur-md shadow-sm"
+          ? "border-b border-line bg-background/90 shadow-sm backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-[4.5rem] w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#home" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-charcoal text-xl font-black text-gold shadow-sm">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
+        <a
+          href="#home"
+          className="group flex items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-charcoal font-display text-xl font-black text-gold shadow-sm transition-transform duration-200 group-hover:scale-105">
             π
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="text-sm font-extrabold text-ink sm:text-base">
+            <span className="text-sm font-extrabold text-ink sm:text-[15px]">
               {site.name}
             </span>
             <span className="text-[11px] font-medium text-muted">
@@ -43,17 +52,15 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="التنقل الرئيسي">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="التنقل الرئيسي">
           {navLinks.map((link) => (
             <a
               key={link.id}
               href={link.href}
-              className="group flex flex-col items-center gap-0.5 text-sm font-bold text-ink-soft transition-colors hover:text-gold-strong"
+              onClick={() => setOpen(false)}
+              className="link-underline text-sm font-bold text-ink-soft transition-colors hover:text-gold-strong"
             >
-              <span>{link.label}</span>
-              <span className="font-display text-[9px] uppercase tracking-[0.25em] text-muted transition-colors group-hover:text-gold">
-                {link.english}
-              </span>
+              {link.label}
             </a>
           ))}
         </nav>
@@ -73,7 +80,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-background/60 text-ink lg:hidden"
           >
             {open ? (
               <CloseIcon width={20} height={20} />
@@ -115,6 +122,15 @@ export function Navbar() {
                 برنامج الدروس
               </ButtonLink>
               <ThemeToggle />
+            </li>
+            <li className="flex items-center justify-between gap-3 pb-4">
+              <a
+                href={teacher.school.phoneHref}
+                className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full border border-line text-[15px] font-extrabold text-ink transition-colors hover:border-gold hover:text-gold-strong"
+              >
+                <PhoneIcon width={18} height={18} />
+                الاتصال بالمدرسة
+              </a>
             </li>
             <li className="pb-2 text-center text-xs text-muted">
               {teacher.title}

@@ -59,6 +59,7 @@ export function Location() {
           <Reveal delay={120}>
             <div className="relative overflow-hidden rounded-3xl border border-line bg-background p-8 shadow-md sm:p-10">
               <div aria-hidden className="pointer-events-none absolute inset-0">
+                <div className="absolute inset-0 opacity-60 [background:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:32px_32px]" />
                 <div className="absolute -start-16 -top-16 h-48 w-48 rounded-full bg-gold/10 blur-2xl" />
                 <span className="math-symbol right-[10%] top-[14%] text-5xl opacity-15">
                   ∑

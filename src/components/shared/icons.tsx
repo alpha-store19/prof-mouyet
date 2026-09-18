@@ -119,3 +119,56 @@ export function SunIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function ClockIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5V12l3 2" />
+    </svg>
+  );
+}
+
+export function UsersIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="9" cy="8.5" r="3.4" />
+      <path d="M3.5 19c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5" />
+      <path d="M15.5 5.6a3.4 3.4 0 0 1 0 5.8M17.5 14.8c1.7.7 2.8 2 3.2 4.2" />
+    </svg>
+  );
+}
+
+export function SchoolIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M3 19h18M5 19V9l7-4 7 4v10" />
+      <path d="M9 12h6M9 15.5h6M12 8v.5" />
+    </svg>
+  );
+}
+
+export function FolderIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M3.5 6.5h6l2 2h9v11h-17z" />
+    </svg>
+  );
+}
+
+export function BookStackIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 5.5h16v13H4z" />
+      <path d="M8 5.5v11M12 5.5v11M16 5.5v11" />
+    </svg>
+  );
+}
+
+export function ChevronLeftIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M15 6l-6 6 6 6" />
+    </svg>
+  );
+}

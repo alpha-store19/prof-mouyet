@@ -1,5 +1,4 @@
 import { teacher } from "@/data/teacher";
-import { site } from "@/data/site";
 import { Container } from "@/components/shared/container";
 import { ButtonLink } from "@/components/shared/button";
 import {
@@ -12,10 +11,10 @@ import {
 const symbols = [
   { char: "π", className: "top-[12%] right-[6%] text-6xl sm:text-7xl animate-float-slow", delay: "0s" },
   { char: "∑", className: "top-[24%] left-[4%] text-5xl sm:text-6xl animate-float-slower", delay: "0.8s" },
-  { char: "√", className: "bottom-[18%] right-[12%] text-5xl sm:text-6xl animate-float-slow", delay: "1.6s" },
-  { char: "x²", className: "top-[10%] left-[16%] text-4xl sm:text-5xl animate-float-slower", delay: "0.4s" },
-  { char: "f(x)", className: "bottom-[12%] left-[24%] text-4xl sm:text-5xl animate-float-slow", delay: "2.2s" },
-  { char: "Δ", className: "top-[44%] right-[22%] text-4xl sm:text-5xl animate-float-slower", delay: "1.2s" },
+  { char: "√", className: "bottom-[22%] right-[12%] text-5xl sm:text-6xl animate-float-slow", delay: "1.6s" },
+  { char: "x²", className: "top-[10%] left-[18%] text-4xl sm:text-5xl animate-float-slower", delay: "0.4s" },
+  { char: "f(x)", className: "bottom-[16%] left-[26%] text-4xl sm:text-5xl animate-float-slow", delay: "2.2s" },
+  { char: "Δ", className: "top-[46%] right-[24%] text-4xl sm:text-5xl animate-float-slower", delay: "1.2s" },
 ];
 
 const quickLinks = [
@@ -34,12 +33,13 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92svh] flex-col justify-center overflow-hidden bg-background pt-28 pb-16 sm:min-h-[88svh]"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-background pt-28 pb-20 sm:min-h-[92svh]"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(60%_55%_at_50%_0%,var(--gold-soft),transparent_70%)] opacity-70" />
-        <div className="absolute inset-y-0 left-1/2 w-px bg-line" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-surface to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,var(--gold-soft),transparent_72%)] opacity-80" />
+        <div className="absolute inset-0 bg-[radial-gradient(42%_30%_at_86%_18%,var(--gold-soft),transparent_70%)] opacity-60 md:opacity-80" />
+        <div className="absolute inset-y-0 left-1/2 w-px bg-line/70" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-surface to-transparent" />
         {symbols.map((s) => (
           <span
             key={s.char}
@@ -55,65 +55,79 @@ export function Hero() {
 
       <Container className="relative">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold-soft/50 px-4 py-1.5 text-xs font-bold text-gold-strong">
+          <span
+            className="animate-hero-in mb-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold-soft/50 px-4 py-1.5 text-xs font-bold text-gold-strong"
+            style={{ animationDelay: "0.05s" }}
+          >
             <span className="h-1.5 w-1.5 rounded-full bg-gold" />
             الموقع الرسمي • Official Website
           </span>
 
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.5em] text-gold-strong sm:text-sm">
+          <p
+            className="animate-hero-in font-display text-xs font-semibold uppercase tracking-[0.45em] text-gold-strong sm:text-sm"
+            style={{ animationDelay: "0.12s" }}
+          >
             {teacher.name}
           </p>
 
-          <h1 className="mt-4 text-4xl font-black leading-[1.2] text-ink sm:text-5xl lg:text-6xl">
-            الأستاذ مويات براء عبد الله
+          <h1
+            className="animate-hero-in mt-4 text-4xl font-black leading-[1.2] text-ink sm:text-5xl lg:text-6xl"
+            style={{ animationDelay: "0.2s" }}
+          >
+            الأستاذ <span className="text-gold-strong">مويات براء عبد الله</span>
           </h1>
 
-          <p className="mt-5 text-lg font-bold text-ink-soft sm:text-xl">
+          <p
+            className="animate-hero-in mt-5 text-lg font-bold text-ink-soft sm:text-xl"
+            style={{ animationDelay: "0.28s" }}
+          >
             {teacher.heroRole}
           </p>
 
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+          <p
+            className="animate-hero-in mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+            style={{ animationDelay: "0.36s" }}
+          >
             {teacher.heroDescription}
           </p>
 
-          <div className="mt-9 flex w-full max-w-2xl flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <div
+            className="animate-hero-in mt-9 flex w-full max-w-2xl flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+            style={{ animationDelay: "0.44s" }}
+          >
             <ButtonLink href="#planning" size="lg" className="w-full sm:w-auto">
               <CalendarIcon width={19} height={19} />
-              شاهد برنامج الدروس
+              اكتشف برنامج الدروس
             </ButtonLink>
             <ButtonLink
-              href="#location"
+              href="#contact"
               size="lg"
               variant="dark"
               className="w-full sm:w-auto"
             >
-              <MapPinIcon width={19} height={19} />
-              مكان الدراسة
+              تواصل مع الأستاذ
             </ButtonLink>
           </div>
 
-          <div className="mt-4 flex items-center gap-3">
+          <div
+            className="animate-hero-in mt-4 flex items-center gap-3"
+            style={{ animationDelay: "0.52s" }}
+          >
             <ButtonLink
-              href="#contact"
+              href="#location"
               variant="ghost"
               size="md"
               className="rounded-full"
             >
-              تواصل معي
+              <MapPinIcon width={17} height={17} />
+              مكان الدراسة
             </ButtonLink>
-            <span className="h-4 w-px bg-line" aria-hidden />
-            <a
-              href={teacher.links.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonGhost}
-            >
-              <InstagramIcon width={16} height={16} />
-              Instagram
-            </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-2.5">
+          <div
+            className="animate-hero-in mt-12 flex flex-wrap items-center justify-center gap-2.5"
+            style={{ animationDelay: "0.6s" }}
+          >
             <span className="text-xs font-bold text-muted">وصول سريع:</span>
             {quickLinks.map((link) =>
               link.external ? (
@@ -141,11 +155,6 @@ export function Hero() {
           </div>
         </div>
       </Container>
-
-      <p className="sr-only">{site.name}</p>
     </section>
   );
 }
-
-const buttonGhost =
-  "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-ink-soft transition-colors hover:text-gold-strong";

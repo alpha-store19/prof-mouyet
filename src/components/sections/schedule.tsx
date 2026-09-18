@@ -13,7 +13,14 @@ import { Container } from "@/components/shared/container";
 import { Section, SectionHeading } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { cn, onScheduleFilter } from "@/lib/utils";
-import { CheckIcon } from "@/components/shared/icons";
+import {
+  CheckIcon,
+  BookIcon,
+  SchoolIcon,
+  UsersIcon,
+  CalendarIcon,
+  ClockIcon,
+} from "@/components/shared/icons";
 import { ScheduleFinder } from "./schedule-finder";
 
 function ScheduleCard({
@@ -43,12 +50,17 @@ function ScheduleCard({
 
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="text-base font-extrabold text-ink">
-            📚 {LEVEL_LABEL[entry.levelKey]}
-          </p>
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gold-soft text-gold-strong">
+              <BookIcon width={17} height={17} />
+            </span>
+            <p className="text-[15px] font-extrabold text-ink">
+              {LEVEL_LABEL[entry.levelKey]}
+            </p>
+          </div>
           {entry.badge || entry.streams ? (
-            <p className="mt-1 text-sm font-bold text-ink-soft">
-              🏫{" "}
+            <p className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-3 py-1 text-xs font-bold text-ink-soft">
+              <SchoolIcon width={13} height={13} className="text-gold-strong" />
               {entry.streams
                 ? entry.streams.join(" + ")
                 : entry.badge ?? "بيانات البرنامج"}
@@ -57,20 +69,24 @@ function ScheduleCard({
         </div>
       </div>
 
-      {entry.group ? (
-        <p className="mt-3 text-sm font-bold text-muted">
-          👥 الفوج: <span className="text-ink">{entry.group}</span>
-        </p>
-      ) : null}
-
-      <p className="mt-2 text-sm font-bold text-muted">
-        📅 الأيام: <span className="text-ink">{entry.days.join(" + ")}</span>
-      </p>
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-bold text-muted">
+        {entry.group ? (
+          <span className="inline-flex items-center gap-1.5">
+            <UsersIcon width={15} height={15} className="text-gold-strong" />
+            الفوج: <span className="text-ink">{entry.group}</span>
+          </span>
+        ) : null}
+        <span className="inline-flex items-center gap-1.5">
+          <CalendarIcon width={15} height={15} className="text-gold-strong" />
+          <span className="text-ink">{entry.days.join(" + ")}</span>
+        </span>
+      </div>
 
       <p
         dir="ltr"
-        className="my-4 rounded-xl bg-surface-2 py-3 text-center text-xl font-black tracking-wide text-gold-strong sm:text-2xl"
+        className="my-4 flex items-center justify-center gap-2.5 rounded-xl bg-surface-2 py-3 text-xl font-black tracking-wide text-gold-strong sm:text-2xl"
       >
+        <ClockIcon width={20} height={20} className="hidden sm:block" />
         {entry.start} — {entry.end}
       </p>
 

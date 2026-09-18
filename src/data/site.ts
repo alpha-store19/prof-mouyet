@@ -23,11 +23,9 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { id: "home", label: "الرئيسية", english: "Home", href: "#home" },
   { id: "about", label: "عن الأستاذ", english: "About", href: "#about" },
   { id: "levels", label: "المستويات", english: "Levels", href: "#levels" },
-  { id: "planning", label: "برنامج الدروس", english: "Planning", href: "#planning" },
-  { id: "library", label: "المكتبة", english: "Resources", href: "#library" },
+  { id: "library", label: "المكتبة", english: "Library", href: "#library" },
   { id: "location", label: "المكان", english: "Location", href: "#location" },
-  { id: "contact", label: "تواصل", english: "Contact", href: "#contact" },
+  { id: "contact", label: "تواصل معنا", english: "Contact", href: "#contact" },
 ] as const;

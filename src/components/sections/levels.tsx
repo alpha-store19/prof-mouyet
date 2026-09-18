@@ -5,6 +5,7 @@ import { Container } from "@/components/shared/container";
 import { Section, SectionHeading } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { requestScheduleFilter, scrollToId } from "@/lib/utils";
+import { ChevronLeftIcon } from "@/components/shared/icons";
 
 export function Levels() {
   const handleSelect = (filter: (typeof LEVELS)[number]["filter"]) => {
@@ -42,8 +43,8 @@ export function Levels() {
                   </span>
                   <span className="text-sm text-muted">{level.subtitle}</span>
                 </span>
-                <span className="text-gold opacity-0 transition-opacity group-hover:opacity-100" aria-hidden>
-                  ←
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-gold opacity-0 transition-all group-hover:border-gold group-hover:opacity-100" aria-hidden>
+                  <ChevronLeftIcon width={16} height={16} />
                 </span>
               </button>
             </Reveal>

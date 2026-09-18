@@ -117,6 +117,10 @@ body {
     transform: none !important;
     transition: none !important;
   }
+  .animate-hero-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
   *,
   *::before,
   *::after {
@@ -141,6 +145,21 @@ body {
 }
 .animate-float-slower {
   animation: float-slow 11s ease-in-out infinite;
+}
+
+/* Hero entrance — gentle fade + rise */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-hero-in {
+  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Scrollbar — subtle premium */

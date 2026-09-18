@@ -3,6 +3,7 @@ import { Container } from "@/components/shared/container";
 import { Section, SectionHeading } from "@/components/shared/section";
 import { Reveal } from "@/components/shared/reveal";
 import { buttonClasses } from "@/components/shared/button";
+import { FolderIcon } from "@/components/shared/icons";
 
 const resources = [
   { icon: "📚", title: "دروس", subtile: "ملخصات الدروس" },
@@ -52,7 +53,8 @@ export function Library() {
             rel="noopener noreferrer"
             className={buttonClasses({ size: "lg" })}
           >
-            📂 فتح المكتبة التعليمية
+            <FolderIcon width={18} height={18} />
+            فتح المكتبة التعليمية
           </a>
           <p className="mt-3 text-xs text-muted">
             المكتبة التعليمية متاحة عبر Google Drive.
